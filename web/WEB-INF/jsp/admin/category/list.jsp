@@ -9,7 +9,7 @@
 	src="${pageContext.request.contextPath}/js/public.js"></script>
 <script type="text/javascript">
 			function addCategory(){
-				window.location.href = "${pageContext.request.contextPath}/admin/category/add.jsp";
+				window.location.href = "add.jsp";
 			}
 		</script>
 </HEAD>
@@ -50,7 +50,7 @@
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 									width="17%">手机数码</td>
 								<td align="center" style="HEIGHT: 22px"><a
-									href="${ pageContext.request.contextPath }/admin/category/edit.jsp">
+									href="${ pageContext.request.contextPath }/WEB-INF/jsp/admin/category/edit.jsp">
 										<img
 										src="${pageContext.request.contextPath}/images/i_edit.gif"
 										border="0" style="CURSOR: hand">

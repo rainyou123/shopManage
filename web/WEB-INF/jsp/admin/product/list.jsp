@@ -9,7 +9,7 @@
 	src="${pageContext.request.contextPath}/js/public.js"></script>
 <script type="text/javascript">
 			function addProduct(){
-				window.location.href = "${pageContext.request.contextPath}/admin/product/add.jsp";
+				window.location.href = "add.jsp";
 			}
 		</script>
 </HEAD>
@@ -62,7 +62,7 @@
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 									width="17%">是</td>
 								<td align="center" style="HEIGHT: 22px"><a
-									href="${ pageContext.request.contextPath }/admin/product/edit.jsp">
+									href="${ pageContext.request.contextPath }/WEB-INF/jsp/admin/product/edit.jsp">
 										<img
 										src="${pageContext.request.contextPath}/images/i_edit.gif"
 										border="0" style="CURSOR: hand">
