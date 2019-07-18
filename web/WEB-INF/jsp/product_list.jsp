@@ -61,8 +61,14 @@ body {
 	<!--分页 -->
 	<div style="width: 380px; margin: 0 auto; margin-top: 50px;">
 		<ul class="pagination" style="text-align: center; margin-top: 10px;">
-			<li class="disabled"><a href="#" aria-label="Previous"><span
-					aria-hidden="true">&laquo;</span></a></li>
+			<c:if test="${pageBean.currentPage == 1}">
+				<li class="disabled"><a href="javascript:void(0)" aria-label="Previous"><span
+						aria-hidden="true">&laquo;</span></a></li>
+			</c:if>
+			<c:if test="${pageBean.currentPage != 1}">
+				<li><a href=${pageContext.request.contextPath}"/productList.do?currentPage=${pageBean.currentPage - 1}" aria-label="Previous"><span
+						aria-hidden="true">&laquo;</span></a></li>
+			</c:if>
 
 			<c:forEach begin="1" end="${pageBean.totalPages}" var="page">
 				<c:if test="${pageBean.currentPage == page}">
@@ -75,8 +81,12 @@ body {
 			</c:forEach>
 
 			<%--<li class="active"><a href="#">1</a></li>--%>
-			<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li>
+			<c:if test="${pageBean.currentPage != pageBean.totalPages}">
+				<li><a href=${pageContext.request.contextPath}"/productList.do?currentPage=${pageBean.currentPage + 1}" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+			</c:if>
+			<c:if test="${pageBean.currentPage == pageBean.totalPages}">
+				<li class="disabled"><a href="javascript:void(0)"  aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+			</c:if>
 		</ul>
 	</div>
 	<!-- 分页结束 -->

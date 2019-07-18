@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ProductAdminDao">
+
+    <!--List<Product> getAllAdminProduct();-->
+    <select id="getAllAdminProduct" resultType="Product" >
+        select * from product
+    </select>
+
+    <!--List<Category> getCategoryList();-->
+    <select id="getCategoryList" resultType="Category">
+        select * from category
+    </select>
+
+    <!--List<Product> getProductByCondition(Condition condition);-->
+    <select id="getProductByCondition" parameterType="Condition" resultType="Product">
+        select * from product
+        <where>
+            <if test="pname != null and pname != ''">
+                and pname like "%"#{pname}"%"
+            </if>
+            <if test="is_hot != null and is_hot !=''">
+                and is_hot = #{is_hot}
+            </if>
+            <if test="cid != null and cid !=''">
+                and cid = #{cid}
+            </if>
+        </where>
+    </select>
+    <!--private String pname;-->
+    <!--private String is_hot;-->
+    <!--private String cid;-->
+
+</mapper>

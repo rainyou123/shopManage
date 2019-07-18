@@ -1,5 +1,6 @@
 package com.service;
 
+import com.pojo.Category;
 import com.pojo.Product;
 import com.vo.PageBean;
 import com.vo.QueryVo;
@@ -14,6 +15,4 @@ public interface ProductService {
 
     List<Product> getProductBySearch(String word);
 
-
-    List<Product> getAllAdminProduct();
 }

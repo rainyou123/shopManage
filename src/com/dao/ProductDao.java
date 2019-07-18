@@ -14,5 +14,4 @@ public interface ProductDao {
     List<Product> getProductBySearch(String word);
 
 
-    List<Product> getAllAdminProduct();
 }

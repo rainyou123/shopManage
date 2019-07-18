@@ -75,10 +75,6 @@ public class ProductServiceImpl implements ProductService {
         return productDao.getProductBySearch(word);
     }
 
-    @Override
-    public List<Product> getAllAdminProduct() {
-        return productDao.getAllAdminProduct();
-    }
 
 
 }
