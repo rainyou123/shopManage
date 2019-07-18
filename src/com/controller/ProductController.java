@@ -7,12 +7,14 @@ import com.vo.PageBean;
 import com.vo.QueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Controller
@@ -21,17 +23,15 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping("/productList.do")
-    public ModelAndView getAllProductByLimit(QueryVo vo){
+    public String getAllProductByLimit(QueryVo vo , Model model){
         PageBean<Product> pageBean = productService.getAllProductByVo(vo);
-        ModelAndView mac = new ModelAndView();
-        mac.addObject("pageBean" , pageBean);
-        mac.setViewName("product_list");
-        return mac;
+        model.addAttribute("pageBean" , pageBean);
+        return "product_list";
     }
 
     @RequestMapping("/ProductSearch.do")
     @ResponseBody
-    public String getProductBySearch(@RequestBody String word){
+    public String getProductBySearch(String word) throws UnsupportedEncodingException {
         List<Product> products = productService.getProductBySearch(word);
         for(Product p:products){
             System.out.println(p);
@@ -39,27 +39,6 @@ public class ProductController {
         return JSON.toJSONString(products);
     }
 
-    @RequestMapping("/home.do")
-    public String getHome(){
-        return "admin/home";
-    }
-    @RequestMapping("/left.do")
-    public String getLeft(){
-        return "admin/left";
-    }
-    @RequestMapping("/welcome.do")
-    public String getWelcome(){
-        return "admin/welcome";
-    }
-    @RequestMapping("/bottom.do")
-    public String getBottom(){
-        return "admin/bottom";
-    }
-    @RequestMapping("/top.do")
-    public String getTop(){
-        return "admin/top";
-    }
-//    @RequestMapping("list.do")
-//    public String getAllList
+
 
 }

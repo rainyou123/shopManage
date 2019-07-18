@@ -15,6 +15,5 @@ public interface ProductService {
     List<Product> getProductBySearch(String word);
 
 
-
-
+    List<Product> getAllAdminProduct();
 }

@@ -56,7 +56,7 @@
 <script type="text/javascript">
 	function searchWord(obj){
 	    var word = $(obj).val();
-	    var context;
+	    var context = "";
 	    if(word != ""){
 	        $.ajax({
                 url:${pageContext.request.contextPath}"/ProductSearch.do",

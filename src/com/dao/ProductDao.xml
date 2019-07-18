@@ -9,19 +9,24 @@
         select count(*) from product
     </select>
 
-    <!--List<Product> getAllProductByLimit(int index, int maxCount);-->
-    <!--<select id="getAllProductByLimit" resultType="Product" parameterType="Integer , Integer">-->
 
-    <!--</select>-->
 
 
     <!--List<Product> getProductByLimit(QueryVo vo);-->
     <select id="getProductByLimit" parameterType="QueryVo" resultType="Product">
-        select * from product where 1=1 limit #{index} , #{maxCount}
+        select * from product limit #{index} , #{maxCount}
     </select>
 
     <!--List<Product> getProductBySearch(String word);-->
     <select id="getProductBySearch" resultType="Product" parameterType="String">
-        select * from product where pname like "%"#{word}"%"
+        select * from product
+        <where>
+            pname like "%"#{word}"%"
+        </where>
+    </select>
+
+    <!--List<Product> getAllAdminProduct();-->
+    <select id="getAllAdminProduct" resultType="Product" >
+        select * from product
     </select>
 </mapper>

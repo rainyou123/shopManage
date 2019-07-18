@@ -39,7 +39,7 @@ body {
 				<li><a href="#">首页</a></li>
 			</ol>
 		</div>
-		<c:forEach items="${productList}" var="product">
+		<c:forEach items="${pageBean.rows}" var="product">
 			<div class="col-md-2" style="height: 270px">
 				<a href="">
 					<img src="${product.pimage}" width="170" height="170" style="display: inline-block;">
@@ -65,10 +65,10 @@ body {
 					aria-hidden="true">&laquo;</span></a></li>
 
 			<c:forEach begin="1" end="${pageBean.totalPages}" var="page">
-				<c:if test="${page.currentPage == page}">
+				<c:if test="${pageBean.currentPage == page}">
 					<li class="active"><a href=${pageContext.request.contextPath}"/productList.do?currentPage=${page}">${page}</a></li>
 				</c:if>
-				<c:if test="${page.currentPage != page}">
+				<c:if test="${pageBean.currentPage != page}">
 					<li ><a href=${pageContext.request.contextPath}"/productList.do?currentPage=${page}">${page}</a></li>
 				</c:if>
 
