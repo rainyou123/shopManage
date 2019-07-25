@@ -25,4 +25,12 @@
         </where>
     </select>
 
+
+    <!--List<Product> getProductListByWord(String pname);-->
+    <!--<select id="getProductListByWord" parameterType="String" resultType="Product">-->
+        <!--select * from product-->
+        <!--<where>-->
+            <!--pname like "%"#{pname}"%"-->
+        <!--</where>-->
+    <!--</select>-->
 </mapper>

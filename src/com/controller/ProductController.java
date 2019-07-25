@@ -22,21 +22,32 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    //分页显示全部商品
     @RequestMapping("/productList.do")
-    public String getAllProductByLimit(QueryVo vo , Model model){
+    public String getAllProductByLimit(HttpServletRequest req , Model model){
+        String currentPage = req.getParameter("currentPage");
+        QueryVo vo = new QueryVo();
+        if(currentPage == null) currentPage = "1";
+        System.out.println(currentPage);
+        vo.setCurrentPage(Integer.valueOf(currentPage));
         PageBean<Product> pageBean = productService.getAllProductByVo(vo);
         model.addAttribute("pageBean" , pageBean);
         return "product_list";
     }
 
+    //查询框的下边
     @RequestMapping("/ProductSearch.do")
     @ResponseBody
     public String getProductBySearch(String word) throws UnsupportedEncodingException {
         List<Product> products = productService.getProductBySearch(word);
-        for(Product p:products){
-            System.out.println(p);
-        }
         return JSON.toJSONString(products);
+    }
+    //根据输入查询文字 来显示商品
+    @RequestMapping("/ProductSearchByWord.do")
+    public String getProductListByWord(String pname,Model model){
+        PageBean<Product> pageBean = productService.getProductListByWord(pname);
+       model.addAttribute("pageBean" , pageBean);
+        return "product_list";
     }
 
 

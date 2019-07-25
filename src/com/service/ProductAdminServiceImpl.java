@@ -33,5 +33,15 @@ public class ProductAdminServiceImpl implements ProductAdminService {
         return productAdminDao.getProductByCondition(condition);
     }
 
+    @Override
+    public void addProduct(Product product) {
+        productAdminDao.addProduct(product);
+    }
+
+    @Override
+    public void deleteProductById(String pid) {
+        productAdminDao.deleteProductById(pid);
+    }
+
 
 }

@@ -15,4 +15,6 @@ public interface ProductService {
 
     List<Product> getProductBySearch(String word);
 
+    PageBean<Product> getProductListByWord(String pname);
+
 }

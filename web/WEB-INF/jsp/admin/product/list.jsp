@@ -11,12 +11,12 @@
 	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
         function addProduct(){
-            window.location.href = "${pageContext.request.contextPath}/adminCategoryList";
+            window.location.href = "${pageContext.request.contextPath}/addProduct.do";
         }
         function deleteProduct(pid) {
             var b = confirm("您确定要删除吗?");
             if(b){
-                window.location.href = "${pageContext.request.contextPath}/adminDeleteProduct?pid=" + pid;
+                window.location.href = "${pageContext.request.contextPath}/adminDeleteProduct.do?pid=" + pid;
             }
         }
         $(function () {

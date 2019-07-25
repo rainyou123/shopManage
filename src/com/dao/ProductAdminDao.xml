@@ -33,4 +33,27 @@
     <!--private String is_hot;-->
     <!--private String cid;-->
 
+
+    <!--void addProduct(Product product);-->
+    <insert id="addProduct" parameterType="Product">
+        insert into product values ("" ,#{pname},#{market_price},#{shop_price},"",null,#{pdesc},"",#{is_hot},#{cid})
+    </insert>
+    <!--private String pid;-->
+    <!--private String pname;-->
+    <!--private String market_price;-->
+    <!--private String shop_price;-->
+    <!--private String pimage;-->
+    <!--private String pdate;-->
+    <!--private String pdesc;-->
+    <!--private int pflag;-->
+    <!--private int is_hot;-->
+    <!--private String cid;-->
+
+    <!--void deleteProductById(String pid);-->
+    <delete id="deleteProductById" parameterType="String">
+        delete from product
+        <where>
+            pid = #{pid}
+        </where>
+    </delete>
 </mapper>

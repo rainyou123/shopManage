@@ -60,4 +60,32 @@ public class ProductAdminController {
         model.addAttribute("categoryList" , categoryList);
         return "admin/product/list";
     }
+
+    //进入添加页面
+    @RequestMapping("/addProduct.do")
+    public String addProductCategory(Model model){
+        List<Category> categoryList = productAdminService.getCategoryList();
+        model.addAttribute("categoryList" , categoryList);
+        return "admin/product/add";
+    }
+    //进行添加操作
+    @RequestMapping("/adminProductAdd.do")
+    public String addProduct(Product product,Model model){
+        productAdminService.addProduct(product);
+        List<Product> productList = productAdminService.getAllAdminProduct();
+        model.addAttribute("productList" , productList);
+        List<Category> categoryList = productAdminService.getCategoryList();
+        model.addAttribute("categoryList" , categoryList);
+        return "admin/product/list";
+    }
+    //进行删除操作
+    @RequestMapping("/adminDeleteProduct.do")
+    public String deleteProduct(String pid , Model model){
+        productAdminService.deleteProductById(pid);
+        List<Product> productList = productAdminService.getAllAdminProduct();
+        model.addAttribute("productList" , productList);
+        List<Category> categoryList = productAdminService.getCategoryList();
+        model.addAttribute("categoryList" , categoryList);
+        return "admin/product/list";
+    }
 }

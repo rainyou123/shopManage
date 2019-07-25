@@ -13,4 +13,8 @@ public interface ProductAdminDao {
     List<Category> getCategoryList();
 
     List<Product> getProductByCondition(Condition condition);
+
+    void addProduct(Product product);
+
+    void deleteProductById(String pid);
 }
